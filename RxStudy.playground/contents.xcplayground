@@ -5,5 +5,7 @@
         <page name='General_Observable'/>
         <page name='Observable'/>
         <page name='Observer'/>
+        <page name='Observable_Observer'/>
+        <page name='Disposable'/>
     </pages>
 </playground>
