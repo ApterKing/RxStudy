@@ -58,11 +58,9 @@ extension Reactive where Base: UIImageView {
 }
 
 // 这里试一试我们自定义的一个bgColor，将背景色转换为brown
-DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3) {
-    Observable<UIColor>.just(UIColor.brown)
-        .bind(to: imageView.rx.bgColor)
-        .disposed(by: disposeBag)
-}
+Observable<UIColor>.just(UIColor.brown)
+    .bind(to: imageView.rx.bgColor)
+    .disposed(by: disposeBag)
 
 PlaygroundPage.current.liveView = imageView
 

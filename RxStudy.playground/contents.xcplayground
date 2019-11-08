@@ -3,9 +3,17 @@
     <pages>
         <page name='Charactistics_Observable'/>
         <page name='General_Observable'/>
-        <page name='Observable'/>
         <page name='Observer'/>
         <page name='Observable_Observer'/>
         <page name='Disposable'/>
+        <page name='Scheduler'/>
+        <page name='Observable_Creating'/>
+        <page name='Observable_Transforming'/>
+        <page name='Observable_Filtering'/>
+        <page name='Observable_Combining'/>
+        <page name='Observable_ErrorHandling'/>
+        <page name='Observable_Utility'/>
+        <page name='Observable_Conditional_Boolean'/>
+        <page name='Observable_Mathematical_Aggregate'/>
     </pages>
 </playground>
