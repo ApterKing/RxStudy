@@ -44,11 +44,29 @@ observable.subscribeOn(SerialDispatchQueueScheduler(qos: .background))
 PlaygroundPage.current.liveView = imageView
 
 /// ImmediateSchedulerType
-//ImmediateSchedulerType
-//OperationQueueScheduler
-//CurrentThreadScheduler
+/// OperationQueueScheduler 是通过OperationQueue来控制你同时并发的最大线程数
+/// 尝试着修改下列 maxConcurrentOperationCount 的值来体会其用法
+let operationQueue = OperationQueue()
+operationQueue.maxConcurrentOperationCount = 2
+let operationObservable = Observable.of(1, 2, 3).subscribeOn(OperationQueueScheduler(operationQueue: operationQueue))
+for i in 0..<100 {
+    operationObservable.subscribe { (event) in
+        print("operationObservable: \(i)  \(event)")
+    }
+}
 
-/// ScheduleType
+/// CurrentThreadScheduler 是在当前线程处理订阅事件，如果在main，那么整个执行过程就在main，如果在global那么整个执行过程就在global
+let currentThreadObservable = Observable.of(1, 2, 3).subscribeOn(CurrentThreadScheduler.instance)
+currentThreadObservable.subscribe { (event) in
+    print("currentThreadObservable:  \(Thread.current)   \(event)")
+}
+DispatchQueue.global().async {
+    currentThreadObservable.subscribe { (event) in
+        print("currentThreadObservable:  \(Thread.current)   \(event)")
+    }
+}
+
+/// ScheduleType: 作为ImmediateSchedulerType子Protocol
 //SchedulerType
 //VirtualTimeScheduler; HistoricalScheduler
 //SerialDispatchQueueScheduler; MainScheduler
