@@ -7,6 +7,9 @@ import RxSwift
 import RxCocoa
 import PlaygroundSupport
 
+PlaygroundPage.current.needsIndefiniteExecution = true
+PlaygroundPage.current.finishExecution()
+
 let disposeBag = DisposeBag()
 let imageUrl = "http://reactivex.io/assets/operators/legend.png"
 
@@ -89,14 +92,13 @@ button1.backgroundColor = UIColor.red
 view.addSubview(button1)
 
 let controlEvent = button1.rx.controlEvent(.touchUpInside)
-controlEvent.subscribe { (event) in
-    print("controlEvent  Thread: \(Thread.current.isMainThread)")
+controlEvent
+    .map({ (_) -> Bool in
+        return Thread.current.isMainThread
+    })
+    .subscribe { (event) in
+    print("controlEvent  Thread: \(event)")
 }.disposed(by: disposeBag)
-
-controlEvent.observeOn(SerialDispatchQueueScheduler.init(internalSerialQueueName: "测试线程")).subscribe { (event) in
-    print("controlEvent  Thread  1: \(Thread.current.isMainThread)")
-}.disposed(by: disposeBag)
-
 
 PlaygroundPage.current.liveView = view
 

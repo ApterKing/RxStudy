@@ -7,17 +7,8 @@ target 'RxStudy' do
   use_frameworks!
 
   # Pods for RxStudy
-  pod 'RxSwift', '~> 4.4.0'
-  pod 'RxCocoa', '~> 4.4.0'
-
-  target 'RxStudyTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'RxStudyUITests' do
-    # Pods for testing
-  end
+  pod 'RxSwift'
+  pod 'RxCocoa'
 
 end
 
