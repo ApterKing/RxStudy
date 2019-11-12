@@ -4,7 +4,7 @@
         <page name='Charactistics_Observable'/>
         <page name='General_Observable'/>
         <page name='Observer'/>
-        <page name='Observable_Observer'/>
+        <page name='Subject'/>
         <page name='Disposable'/>
         <page name='Scheduler'/>
         <page name='Observable_Creating'/>
