@@ -1,6 +1,6 @@
 //: [Previous](@previous)
 
-/// Scheduler 调度器，你可以将其看作多线程编程在Rx上的一些扩展，它决定了在哪个线程订阅，在哪个线程监听
+/// 本Demo讲解Scheduler 调度器，你可以将其看作多线程编程在Rx上的一些扩展，它决定了在哪个线程订阅，在哪个线程监听
 
 import Foundation
 import RxSwift
