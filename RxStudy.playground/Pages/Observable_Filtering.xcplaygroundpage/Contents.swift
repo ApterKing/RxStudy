@@ -95,7 +95,15 @@ Observable<Int>.of(0, 1, 2, 3, 4)
     }.disposed(by: disposeBag)
 
 
-
+/// Sample  通过第二个Observable对源Observable进行取样操作，每当第二个Observable发出事件时，则取出源Observable最近的一个事件发出，这有点类似与我们的满足某个条件的抽样调查
+Observable<Int>.interval(1, scheduler: MainScheduler.instance)
+    .sample(Observable<Int>.interval(3, scheduler: MainScheduler.instance))
+    .takeWhile({ (value) -> Bool in
+        return value < 10
+    })
+    .subscribe { (event) in
+        print("Observable   sample:    event ->  \(event)")
+    }.disposed(by: disposeBag)
 
 
 
