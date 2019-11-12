@@ -1,6 +1,6 @@
 //: [Previous](@previous)
 
-/// 非特征序列介绍
+/// 本Demo主要讲解Observable的操作符之非特征序列介绍
 
 import Foundation
 import RxSwift
