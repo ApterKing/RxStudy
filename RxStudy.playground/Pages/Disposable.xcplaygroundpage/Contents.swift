@@ -1,5 +1,7 @@
 //: [Previous](@previous)
 
+/// 本Demo主要介绍Dispose，资源回收
+
 import Foundation
 import RxSwift
 import RxCocoa
