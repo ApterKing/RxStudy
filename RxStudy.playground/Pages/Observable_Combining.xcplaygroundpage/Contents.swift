@@ -50,6 +50,15 @@ Observable<String>.of("hello")
 }.disposed(by: disposeBag)
 
 
+
+/// switch
+Observable<Observable>.of(Observable.of(1, 2, 3), Observable.of(4, 5, 6))
+    .switchLatest()
+    .subscribe { (event) in
+        print("Observable    switch:   event  ->  \(event)")
+}.disposed(by: disposeBag)
+
+
 /// zip    将最多不超过8个的Observable组合起来，并且它的事件元素是每一个Observable事件元素的严格位置对应，事件数量等于最少的那个Observable中的元素个数
 /// 请仔细体会下列例子，并尝试着修改然后再观察其输出的值
 let zip0 = Observable.of(1, 2, 3)

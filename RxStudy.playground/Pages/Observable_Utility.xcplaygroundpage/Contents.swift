@@ -81,3 +81,18 @@ Observable<Int>.timer(0.5, period: 2, scheduler: MainScheduler.instance)
         print("Observable   timeout:   event  ->  \(event)")
 }.disposed(by: disposeBag)
 
+
+
+/// Share   共享事件源，避免多个订阅者订阅时，多次请求，这种情况往往用于网络请求的时候，下列例子我们通过map来观察，你可以尝试着注释下列share观察情况
+let observable = Observable<Int>.of(1, 2).map { (value) -> Int in
+        print("Observable   share:   map    \(value)")
+        return value * 2
+    }
+    .share(replay: 1, scope: .forever)   // 注释这里看看控制台打印的结果体会一下
+
+observable.subscribe { (event) in
+    print("Observable   share:   event   1   \(event)")
+}.disposed(by: disposeBag)
+observable.subscribe { (event) in
+    print("Observable   share:   event   2   \(event)")
+}.disposed(by: disposeBag)
