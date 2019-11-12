@@ -28,6 +28,7 @@ let observable = Observable<UIImage>.deferred { () -> Observable<UIImage> in
         return Disposables.create()
     }
 }.catchError { (error) -> Observable<UIImage> in
+    // 如果发生错误，则显示一张默认图片
     return Observable<UIImage>.just(UIImage(named: "default_image") ?? UIImage())
 }.subscribeOn(SerialDispatchQueueScheduler(internalSerialQueueName: "catch_serial"))
 .observeOn(MainScheduler.instance)

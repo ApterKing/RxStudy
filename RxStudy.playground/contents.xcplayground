@@ -15,5 +15,6 @@
         <page name='Observable_Utility'/>
         <page name='Observable_Conditional_Boolean'/>
         <page name='Observable_Mathematical_Aggregate'/>
+        <page name='Observable_Connectable'/>
     </pages>
 </playground>

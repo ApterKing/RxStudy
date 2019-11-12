@@ -80,17 +80,6 @@ Observable<Int>.of(0, 1, 2, 3, 4)
 }.disposed(by: disposeBag)
 
 
-
-/// Reduce  给定一个初始值，将此次与下次结果根据给定函数进行转换，并且只发送最后一次的结果值
-Observable<Int>.of(0, 1, 2, 3)
-    .reduce("result") { (result, value) -> String in
-        return result + "  --  \(value)"
-    }.subscribe { (event) in
-        print("Observable   reduce:    event  ->  \(event)")
-}.disposed(by: disposeBag)
-
-
-
 /// Scan  给定一个初始值，每一次将上一次的结果与下一次的元素进行组合，其每次事件元素的值都将通过next事件，注意其与Reduce的比较
 Observable<Int>.of(0, 1, 2, 3)
     .scan("result ") { (result, value) -> String in
@@ -101,3 +90,5 @@ Observable<Int>.of(0, 1, 2, 3)
 
 
 
+/// to  将可观察序列转换为一个 数据结构
+Observable.of(1, 2, 4).toArray()

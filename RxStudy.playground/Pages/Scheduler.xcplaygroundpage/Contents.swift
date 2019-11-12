@@ -7,9 +7,6 @@ import RxSwift
 import RxCocoa
 import PlaygroundSupport
 
-PlaygroundPage.current.needsIndefiniteExecution = true
-PlaygroundPage.current.finishExecution()
-
 let disposeBag = DisposeBag()
 let imageUrl = "http://reactivex.io/assets/operators/legend.png"
 

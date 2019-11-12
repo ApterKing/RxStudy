@@ -9,17 +9,24 @@ import PlaygroundSupport
 
 let disposeBag = DisposeBag()
 
-/// Debounce   在规定的时间窗口内过滤事件元素，如果debounce开启的时候此时元素正好到来，那么将无法收到它们的任何事件
 var elements: [Int] = []
 for i in 0...1010 {
     elements.append(i)
 }
+
+/// Throttle   过滤掉高频产生的元素，一段时间内没有新元素产生，那么就将事件元素发射出来，仔细体会其与Debounce的不同
 Observable<Int>.from(elements)
-    .debounce(10, scheduler: MainScheduler.instance)
+    .throttle(0.1, scheduler: MainScheduler.instance)
+    .subscribe { (event) in
+        print("Observable  throttle:    event  ->   \(event)")
+}.disposed(by: disposeBag)
+
+/// Debounce   过滤掉高频产生的元素，在 Observable 产生事件元素后，一段时间内没有新元素产生，那么就将此事件元素发射出来
+Observable<Int>.from(elements)
+    .debounce(0.1, scheduler: MainScheduler.instance)
     .subscribe { (event) in
         print("Observable  debounce:    event  ->   \(event)")
 }.disposed(by: disposeBag)
-
 
 
 /// Distinct   去重
@@ -104,10 +111,6 @@ Observable<Int>.interval(1, scheduler: MainScheduler.instance)
     .subscribe { (event) in
         print("Observable   sample:    event ->  \(event)")
     }.disposed(by: disposeBag)
-
-
-
-
 
 
 
