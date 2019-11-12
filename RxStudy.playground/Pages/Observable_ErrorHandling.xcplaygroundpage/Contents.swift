@@ -1,6 +1,6 @@
 //: [Previous](@previous)
 
-/// 本Demo主要讲解Observable的操作符之如何处理错误
+/// 本Demo讲解Observable的操作符之如何处理错误
 
 import Foundation
 import RxSwift
