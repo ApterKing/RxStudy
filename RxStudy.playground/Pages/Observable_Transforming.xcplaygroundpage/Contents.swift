@@ -1,6 +1,6 @@
 //: [Previous](@previous)
 
-/// 本Demo主要讲解Observable的操作符之如何转换一个观察序列
+/// 本Demo讲解Observable的操作符之如何转换一个观察序列
 
 import Foundation
 import RxSwift
