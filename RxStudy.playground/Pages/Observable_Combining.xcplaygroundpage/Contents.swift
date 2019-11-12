@@ -1,6 +1,6 @@
 //: [Previous](@previous)
 
-/// 本Demo主要讲解Observable的操作符之观察序列组合
+/// 本Demo讲解Observable的操作符之观察序列组合
 
 import Foundation
 import RxSwift
