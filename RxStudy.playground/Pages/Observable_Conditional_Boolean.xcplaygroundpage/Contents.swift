@@ -10,7 +10,7 @@ import PlaygroundSupport
 
 let disposeBag = DisposeBag()
 
-/// Amb  多个源Observables中，将会第一个事件发生的源，并且会忽略掉其他的源
+/// Amb  多个源Observables中，将会发射第一个发射事件的源，并且会忽略掉其他的源
 /// 请仔细体会下面这个例子，timer 0.45的源Observable将会发射事件，其他的Observables事件都会被忽略掉
 /// 可以这样理解：你先来，那么所有都焦点都在你，其他都我都把他们给忽略掉
 Observable<Int>.interval(5, scheduler: MainScheduler.instance)
