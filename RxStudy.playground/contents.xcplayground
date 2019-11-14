@@ -16,5 +16,6 @@
         <page name='Observable_Conditional_Boolean'/>
         <page name='Observable_Mathematical_Aggregate'/>
         <page name='Observable_Connectable'/>
+        <page name='RxCocoa_'/>
     </pages>
 </playground>
